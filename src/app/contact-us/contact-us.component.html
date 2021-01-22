@@ -1,0 +1,137 @@
+<div class="p-5">
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-6 m-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Contact Us</h3>
+                </div>
+                <div class="card-body">
+                    <form #contactForm='ngForm' (ngSubmit)="getData(contactForm.value)">
+                        <div class="row">
+                            <div class="col-6">
+                                <div novalidate class="form-group">
+                                    <label for="">Name</label>
+                                    <input type="text" name="username" class="form-control"
+                                        [(ngModel)]="contact.username" #username="ngModel" required>
+                                    <small class="text-danger" *ngIf="username.errors?.required">This field is
+                                        required</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Phone Num.</label>
+                                    <input type="text" name="number" class="form-control" [(ngModel)]="contact.number"
+                                        #number="ngModel" required>
+                                    <small class="text-danger" *ngIf="number.invalid">This field is required</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="">Message</label><br>
+                                <textarea name="message" class="form-control" id="" cols="40" rows="4"
+                                    [(ngModel)]="contact.message" #message="ngModel" required> </textarea>
+                                <small class="text-danger" *ngIf="message.invalid">This field is required</small>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-primary m-1" [disabled]="contactForm.form.invalid">Submit</button>
+                            <button class="btn btn-danger m-1" value="reset" name="reset">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <p>{{contact.username}}</p>
+            <p>{{contact.number}}</p>
+            <p>{{contact.message}}</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<hr>
+
+<div class="container">
+    <div fxFlex fxFlexOffset="20px" class="form-size">
+        <h3>Send us your Feedback</h3>
+        
+
+
+
+        <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" formControlName="firstname" class="form-control">
+                        <small class="text-danger"
+                            *ngIf="feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched">This
+                            field is required</small>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="">Last Name.</label>
+                        <input type="text" formControlName="lastname" class="form-control" required>
+                        <small class="text-danger"
+                            *ngIf="feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched">This
+                            field is required</small>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="">Tele Number</label>
+                        <input type="text" formControlName="telnum" class="form-control" required>
+                        <small class="text-danger"
+                            *ngIf="feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched">This
+                            field is required</small>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="">Email Id</label>
+                        <input type="text" formControlName="email" class="form-control" required>
+                        <small class="text-danger"
+                            *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched">This
+                            field is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">May we Contact You? &nbsp;</label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" formControlName="agree" checked data-toggle="toggle">
+                        </label>
+                        <select formControlName="contacttype" class="btn btn-light m-auto">
+                            <option *ngFor="let ctype of contactType" value="{{ctype}}">{{ctype}}</option>
+                        </select>
+                    </div>
+                        
+                </div>
+                <div class="col-8">
+                    <div class="form-group">
+                        <label for="">Message</label><br>
+                        <textarea formControlName="message" class="form-control" id="" cols="30" rows="3"
+                            required> </textarea>
+                        <small class="text-danger"
+                            *ngIf="feedbackForm.get('message').hasError('required') && feedbackForm.get('message').touched">This
+                            field is required</small>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+                </div>
+                <div class="col-2">
+                    <div class="text-right">
+                        <button class="btn btn-primary m-1" [disabled]="contactForm.form.invalid">Submit</button>
+                        <button class="btn btn-danger m-1" value="reset" name="reset">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>

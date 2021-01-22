@@ -1,0 +1,24 @@
+
+<section class="jumbotron text-center p-5">
+    <div class="container p-5">
+        <h1 class="jumbotron-heading">Hello, Welcome to Food In Dabba</h1>
+        <p class="lead text-muted">Todays special dish is down below. order it and feel the happiness..</p>
+    </div>
+</section>
+
+<div class="p-5">
+
+
+<div class="container-fluid" *ngIf="featureddish">
+    <div class="row m-auto">
+        <div class="col-6 col-sm-6 col-md-3 mt-2">
+            <div class="card h-100">
+                <img class="card-img-top mw-100" src="{{featureddish.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{featureddish.name}}</h5>
+                    <p class="card-text">{{featureddish.discription}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>
