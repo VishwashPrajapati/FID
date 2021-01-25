@@ -20,8 +20,11 @@ export class DishdetailComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     const id = this.activeout.snapshot.params['id'];
-    this.activeRoute = this.dishservice.getDish(id);
+    
+    this.dishservice.getDish(id).then((activeRoute)=> this.activeRoute = activeRoute);  
+    // this.activeRoute = this.dishservice.getDish(id);
     console.log(this.activeRoute);
   }
   goBack(){

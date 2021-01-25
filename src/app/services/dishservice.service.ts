@@ -8,18 +8,25 @@ import { DISHES } from '../shared/dishes';
   providedIn: 'root'
 })
 export class DishserviceService {
-  
+
   constructor() { }
 
-  getDishData() : Dish[]{
-    return DISHES;
+  getDishData(): Promise<Dish[]> {
+    return new Promise(resolve => {
+      setInterval(() => resolve(DISHES), 2000);
+    });
+    // return new Promise((resolve)=>{resolve(DISHES)});
   }
-  getDish(id:string):Dish{
-    return DISHES.filter((dish)=>dish.id === id)[0];
+  getDish(id: string): Promise<Dish> {
+    return new Promise(resolve => {
+      setInterval(() => resolve(DISHES.filter((dish) => dish.id === id)[0]));
+    });
   }
-  getFeaturedDish():Dish{
-    return DISHES.filter((dish)=>dish.featured)[0];
+  getFeaturedDish(): Promise<Dish> {
+    return new Promise((resolve) => {
+      setInterval(() => resolve(DISHES.filter((dish) => dish.featured)[0]))
+    });
   }
-  
+
 
 }

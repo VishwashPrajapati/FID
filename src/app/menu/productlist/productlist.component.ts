@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { Router,Navigation } from '@angular/router';
 import { CartserviceService } from '../../services/cartservice.service';
 
 @Component({
@@ -18,6 +19,6 @@ export class ProductlistComponent implements OnInit {
   addcart(product){
     let vval = this.serv.addToCart(product);
     console.log(vval);
-    
   }
+
 }

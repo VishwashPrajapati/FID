@@ -20,6 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import 'hammerjs';
@@ -42,12 +46,16 @@ import 'hammerjs';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule, 
-    MatSlideToggleModule, 
-    MatSelectModule, 
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatSelectModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSliderModule,
+    MatProgressSpinnerModule
   ],
   providers: [AppRoutingModule],
   bootstrap: [AppComponent]

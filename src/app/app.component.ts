@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { DishserviceService } from './services/dishservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FoodInDabba';
+  dishes:any;
+  constructor(private dishserve:DishserviceService){}
+
+  ngOnInit(){
+    this.dishserve.getDishData().then((dishes)=>this.dishes = dishes)
+  }
+
 }

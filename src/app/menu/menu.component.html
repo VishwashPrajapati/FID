@@ -4,16 +4,29 @@
     </div>
 </section>
 
-<div class="container">
-    <div class="py-3">
+<div *ngIf="!dish" class="flex">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<div *ngIf="dish">
+    <div class="py-3 p-3">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-12 col-sm-3 col-md-2">
                 <app-filters></app-filters>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-sm-6 col-md-8">
                 <app-productlist [dishitem]="dish"></app-productlist>
             </div>
-            <div class="col-md-2">
+            <div class="col-12 col-sm-3 col-md-2">
                 <app-cartitem></app-cartitem>
             </div>
         </div>

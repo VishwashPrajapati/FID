@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishes';
-
+import { DishserviceService } from '../services/dishservice.service';
 
 
 @Component({
@@ -11,13 +11,15 @@ import { DISHES } from '../shared/dishes';
 })
 export class HomeComponent implements OnInit {
 featureddish : Dish;
-  constructor() { } 
+  constructor(private dishservice:DishserviceService) { } 
 
   ngOnInit(): void {
     
     // this.dish = DISHES.filter((dish)=>dish)[0]
+    
+    this.dishservice.getFeaturedDish().then((featureddish)=>this.featureddish = featureddish)
 
-    this.featureddish = DISHES.filter((dish)=>dish.featured)[0];
+    // setInterval(()=>{this.featureddish = DISHES.filter((dish)=>dish.featured)[0]},2000);
     
   }
 

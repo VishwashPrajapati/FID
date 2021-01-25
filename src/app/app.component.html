@@ -1,11 +1,21 @@
-<app-header></app-header>
-<div class="row">
-    <div class="col">
-        <section class="content">
-            <router-outlet></router-outlet>
-        </section>
+<div *ngIf="!dishes" class="flex">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 </div>
-<section class="footer">
-    <app-footer class="mt-auto"></app-footer>
-</section>
+<div *ngIf="dishes">
+    <app-header></app-header>
+    <section class="content">
+        <router-outlet></router-outlet>
+    </section>
+    <section class="footer">
+        <app-footer class="mt-auto"></app-footer>
+    </section>
+</div>

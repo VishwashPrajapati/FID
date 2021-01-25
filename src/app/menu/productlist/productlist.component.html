@@ -7,25 +7,45 @@
 </div> -->
 
 
-<div class="album py-5">
-    <div class="container" *ngIf="dishitem"> 
-      <div class="row">
-        <div class="col-md-4" *ngFor="let d of dishitem" [routerLink]="['/dishdetail',d.id]">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="{{d.image}}" alt="{{d.name}}" style="height: 225px; width: 100%; display: block;" src="{{d.image}}" data-holder-rendered="true">
-            <div class="card-body">
-              <p class="card-text">{{d.discription}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <!-- " -->
-                  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewProd()" >View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addcart(d.id)">Add Cart</button>
-                <!-- <small class="text-muted">9 mins</small> -->
-              </div>
+<div class="album">
+  <div  *ngIf="dishitem">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let d of dishitem">
+
+        <mat-card class="example-card my-3">
+          <mat-card-header>
+            <mat-card-title>{{d.name}}</mat-card-title>
+          </mat-card-header>
+          <img class="img" mat-card-image src="{{d.image}}" alt="{{d.name}}">
+          <mat-card-content>
+            <p>{{d.discription}}</p>
+            <div>
+            
+          </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" [routerLink]="['/dishdetail',d.id]">View</button>
+            <button mat-button color="warn" (click)="addcart(d.id)">SHARE</button>
+            <button mat-raised-button  color="primary" class="float-right">{{d.price}}</button>
+          </mat-card-actions>
+        </mat-card>
+
+
+        <!-- <div class="card mb-4 box-shadow">
+          <div class="card-header">{{d.name}}</div>
+          <img class="card-img-top" data-src="{{d.image}}" alt="{{d.name}}"
+            style="height: 225px; width: 100%; display: block;" src="{{d.image}}" data-holder-rendered="true">
+          <div class="card-body">
+            <p class="card-text">{{d.discription}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              "
+              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewProd()">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addcart(d.id)">Add Cart</button>
+              <small class="text-muted">9 mins</small>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
-
-
+</div>

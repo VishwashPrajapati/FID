@@ -10,11 +10,12 @@ import { DishserviceService } from '../services/dishservice.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private dishservice : DishserviceService) { }
-  dish:Dish[] ;
+  constructor(private dishservice: DishserviceService) { }
+  dish: Dish[];
 
   ngOnInit(): void {
-    this.dish = this.dishservice.getDishData();
+
+    this.dishservice.getDishData().then((dish) => this.dish = dish)
   }
 
 }

@@ -1,0 +1,14 @@
+.example-card {
+    min-height: 420px;
+  }
+  
+  .img{
+      height: 250px;
+  }
+mat-card-content{
+    min-height: 30px;
+  }
+/* mat-card-actions{
+    bottom: 10px;
+    position: absolute;
+} */
